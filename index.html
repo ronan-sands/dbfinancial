@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DB Financial | Asset Finance Specialist</title>
+  <style>
+    :root {
+      --navy: #29235c;
+      --blue: #009bd7;
+      --light-blue: #eaf8fd;
+      --text: #34324a;
+      --muted: #6c6a80;
+      --white: #ffffff;
+      --off-white: #f8fbfd;
+      --border: #d9edf6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.92rem;
+      padding: 0.55rem 0;
+    }
+
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .logo-image {
+      width: 150px;
+      height: auto;
+      display: block;
+    }
+
+    .logo-text strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .logo-text small {
+      color: var(--blue);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 1.3rem;
+      font-size: 0.94rem;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue);
+      color: var(--white);
+      padding: 0.85rem 1.3rem;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 2px solid var(--blue);
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .btn-outline:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      min-height: 650px;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.88) 47%, rgba(255,255,255,0.28) 100%),
+        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80') center/cover;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      padding: 5rem 0;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      font-size: 0.82rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      color: var(--navy);
+      line-height: 1.12;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text);
+      max-width: 610px;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-heading.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .intro {
+      background: var(--white);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .intro-card {
+      background: var(--light-blue);
+      border-left: 6px solid var(--blue);
+      padding: 2rem;
+      border-radius: 22px;
+    }
+
+    .intro-card p + p {
+      margin-top: 1rem;
+    }
+
+    .quick-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .quick-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.2rem;
+      box-shadow: 0 12px 35px rgba(0, 155, 215, 0.08);
+    }
+
+    .quick-item strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .blue-band {
+      background: var(--blue);
+      color: var(--white);
+      padding: 1rem 0;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 800;
+      font-size: clamp(0.85rem, 2vw, 1.05rem);
+    }
+
+    .finance-options {
+      background: var(--off-white);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.3rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 1.6rem;
+      box-shadow: 0 16px 42px rgba(41, 35, 92, 0.08);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--light-blue);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-size: 1.45rem;
+      margin-bottom: 1rem;
+      font-weight: 900;
+    }
+
+    .assets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .asset-card {
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 16px 42px rgba(41, 35, 92, 0.1);
+      border: 1px solid var(--border);
+    }
+
+    .asset-card img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .asset-content {
+      padding: 1.35rem;
+    }
+
+    .asset-content h3 {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--blue);
+      font-size: 1rem;
+    }
+
+    .why {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .why h2, .why h3 {
+      color: var(--white);
+    }
+
+    .why .section-heading p {
+      color: rgba(255,255,255,0.78);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .why-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 1.25rem;
+    }
+
+    .process {
+      background: var(--off-white);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      counter-reset: step;
+    }
+
+    .step {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 1.5rem;
+      position: relative;
+      border: 1px solid var(--border);
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .feature-split {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .feature-box {
+      background: var(--light-blue);
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .feature-box ul {
+      margin-top: 1rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+
+    .cta {
+      background:
+        linear-gradient(rgba(41,35,92,0.86), rgba(41,35,92,0.86)),
+        url('img/car1.jpg') center/cover;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta h2 {
+      color: var(--white);
+    }
+
+    .cta p {
+      max-width: 680px;
+      margin: 0 auto 1.7rem;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.08rem;
+    }
+
+    .contact {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: var(--off-white);
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .contact-card p {
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+    }
+
+    .contact-card strong {
+      color: var(--navy);
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      font: inherit;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    textarea {
+      min-height: 135px;
+      resize: vertical;
+    }
+
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.78);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer strong {
+      color: var(--white);
+    }
+
+    @media (max-width: 960px) {
+      nav ul {
+        display: none;
+      }
+
+      .intro-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid,
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .assets-grid,
+      .feature-split,
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-bar .container,
+      .header-inner {
+        align-items: flex-start;
+      }
+
+      .header-inner {
+        flex-direction: column;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 4rem 0;
+      }
+
+      .card-grid,
+      .steps,
+      .assets-grid,
+      .feature-split,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .asset-card img {
+        height: 190px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container">
+      <span>Your Asset Finance Specialist</span>
+      <span>Oliver Browne · 07502 427 673 · dbfinancial@btinternet.com</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container header-inner">
+      <a class="logo-wrap" href="#top" aria-label="DB Financial home">
+        <!-- Upload the logo image to Canva and replace the src below with the Canva image URL if needed -->
+        <img class="logo-image" src="img/logo.png" alt="DB Financial logo" />
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#finance">Finance Options</a></li>
+          <li><a href="#assets">What We Finance</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn" href="#contact">Request a Quote</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">Hire Purchase · Lease · Contract Hire</p>
+        <h1>Flexible finance for equipment, vehicles and business growth.</h1>
+        <p>DB Financial helps businesses access the assets they need through tailored finance solutions, practical monthly payments and a personal service from enquiry to completion.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contact">Get a Finance Quote</a>
+          <a class="btn btn-outline" href="#assets">See What We Finance</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="blue-band">
+      <div class="container">Flexible Terms & Payments · Monthly Servicing · Personal Asset Finance Support</div>
+    </div>
+
+    <section class="intro" id="about">
+      <div class="container intro-grid">
+        <div>
+          <p class="eyebrow">Your Asset Finance Specialist</p>
+          <h2>Practical finance options for the assets that keep you moving.</h2>
+          <div class="intro-card">
+            <p>At DB Financial, we support businesses and individuals looking to invest in essential equipment, vehicles and machinery without large upfront costs.</p>
+            <p>Whether you are upgrading agricultural equipment, financing a car, investing in golf course machinery or fitting out commercial premises, we can help explore finance options that work around your needs.</p>
+          </div>
+        </div>
+
+        <div class="quick-list" aria-label="Key benefits">
+          <div class="quick-item">
+            <strong>Flexible monthly payments</strong>
+            Spread the cost of new or used assets over an agreed term.
+          </div>
+          <div class="quick-item">
+            <strong>Wide range of assets</strong>
+            From agricultural machinery and cars to golf equipment and business fit-outs.
+          </div>
+          <div class="quick-item">
+            <strong>Personal guidance</strong>
+            Straightforward support to help you understand your options and next steps.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="finance-options" id="finance">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">Finance Options</p>
+          <h2>Choose a finance route that fits your plans.</h2>
+          <p>Every purchase is different. DB Financial can help you consider suitable options for your asset, cash flow and business requirements.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="icon">HP</div>
+            <h3>Hire Purchase</h3>
+            <p>Spread the cost of an asset over an agreed term while working towards ownership. Ideal for machinery, vehicles and long-term business assets.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">£</div>
+            <h3>Leasing</h3>
+            <p>Access the equipment or vehicle you need without paying the full purchase price upfront. A practical option for businesses that regularly update assets.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">CH</div>
+            <h3>Contract Hire</h3>
+            <p>Use vehicles or equipment for a fixed period with predictable monthly payments. Suitable for convenience, budgeting and planned replacement cycles.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">✓</div>
+            <h3>Flexible Terms</h3>
+            <p>Where available, payments can be structured around cash flow, seasonal income and the practical needs of your business.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="assets">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">What We Finance</p>
+          <h2>Finance across a wide range of assets.</h2>
+          <p>From agricultural machinery and vehicles to specialist equipment, DB Financial can help you access the tools your business needs.</p>
+        </div>
+
+        <div class="assets-grid">
+          <article class="asset-card">
+            <img src="img/agricultural-equipment.jpg" alt="Agricultural tractor in a field" />
+            <div class="asset-content">
+              <h3>Agricultural Equipment</h3>
+              <p>Tractors, trailers, loaders, balers, telehandlers, mowers, sprayers and other farming machinery.</p>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <img src="img/car-commercial-vehicles.jpg" alt="Car on a road" />
+            <div class="asset-content">
+              <h3>Cars & Commercial Vehicles</h3>
+              <p>Cars, vans, pickups, fleet vehicles and specialist business transport for individuals and companies.</p>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <img src="img/golf-course-green.jpg" alt="Golf course fairway" />
+            <div class="asset-content">
+              <h3>Golf Course Equipment</h3>
+              <p>Mowers, irrigation systems, golf buggies, rollers, aerators, range equipment and maintenance machinery.</p>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <img src="img/groundcare-machinery.jpg" alt="Groundcare machinery outdoors" />
+            <div class="asset-content">
+              <h3>Groundcare & Landscaping</h3>
+              <p>Equipment for estates, councils, contractors, landscaping teams and grounds maintenance businesses.</p>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <img src="img/restaurant-interior.jpg" alt="Restaurant interior" />
+            <div class="asset-content">
+              <h3>Business Equipment</h3>
+              <p>Commercial fit-outs, restaurant equipment, computers, administration equipment and operational assets.</p>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <img src="img/computer.jpg" alt="Computer equipment on a desk" />
+            <div class="asset-content">
+              <h3>Specialist Assets</h3>
+              <p>Looking for something specific? We can discuss finance options for a wide range of business-critical purchases.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">Why Choose DB Financial?</p>
+          <h2>Clear, flexible and personal finance support.</h2>
+          <p>Choosing the right finance can make a big difference. DB Financial offers a straightforward service designed to help you move forward with confidence.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-item"><h3>Flexible terms</h3><p>Finance options shaped around the asset, term and repayment structure that suits your requirements.</p></div>
+          <div class="why-item"><h3>Monthly payments</h3><p>Spread the cost of essential assets to help protect cash flow and support business planning.</p></div>
+          <div class="why-item"><h3>New & used assets</h3><p>Support for a broad range of purchases, including new and used vehicles, machinery and equipment.</p></div>
+          <div class="why-item"><h3>Multiple industries</h3><p>Finance support for agriculture, golf, groundcare, transport, hospitality and other commercial sectors.</p></div>
+          <div class="why-item"><h3>Personal service</h3><p>Speak directly with a specialist who can help explain your options and guide you through the process.</p></div>
+          <div class="why-item"><h3>Practical solutions</h3><p>Simple, sensible finance guidance focused on what you need and how the asset will be used.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">How It Works</p>
+          <h2>A simple route to financing your next asset.</h2>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <h3>Tell us what you need</h3>
+            <p>Let us know the asset you are looking to finance, whether it is a vehicle, machinery, equipment or business asset.</p>
+          </article>
+
+          <article class="step">
+            <h3>We explore your options</h3>
+            <p>We consider suitable routes such as hire purchase, leasing or contract hire depending on your needs.</p>
+          </article>
+
+          <article class="step">
+            <h3>Receive a tailored quote</h3>
+            <p>You receive clear information about available terms, monthly payments and the next steps.</p>
+          </article>
+
+          <article class="step">
+            <h3>Move forward confidently</h3>
+            <p>Once everything is agreed, we help guide you through completion so you can access the asset you need.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="industries">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">Industry Support</p>
+          <h2>Specialist finance for core sectors.</h2>
+        </div>
+
+        <div class="feature-split">
+          <article class="feature-box">
+            <h3>Agricultural Finance</h3>
+            <p>Support for farmers, contractors and rural businesses investing in essential machinery and equipment.</p>
+            <ul>
+              <li>Tractors and trailers</li>
+              <li>Loaders and telehandlers</li>
+              <li>Balers, sprayers and mowers</li>
+            </ul>
+          </article>
+
+          <article class="feature-box">
+            <h3>Vehicle Finance</h3>
+            <p>Finance options for cars, vans, pickups and commercial vehicles to keep your business moving.</p>
+            <ul>
+              <li>Cars and vans</li>
+              <li>Pickups and fleet vehicles</li>
+              <li>Specialist commercial transport</li>
+            </ul>
+          </article>
+
+          <article class="feature-box">
+            <h3>Golf Finance</h3>
+            <p>Funding for golf clubs, courses and driving ranges looking to invest in facilities and equipment.</p>
+            <ul>
+              <li>Course setup and irrigation</li>
+              <li>Mowers, buggies and trolleys</li>
+              <li>Range and simulator equipment</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <p class="eyebrow">Ready to Finance Your Next Asset?</p>
+        <h2>Speak to DB Financial today.</h2>
+        <p>Whether you know exactly what you need or would like to discuss your options, we would be happy to help you explore a tailored finance solution.</p>
+        <a class="btn" href="#contact">Get in Touch</a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Request a finance quote.</h2>
+          <p>Use the form below as placeholder content for your Canva website, or replace it with Canva’s contact form app if available.</p>
+
+          <div class="contact-card" style="margin-top: 1.5rem;">
+            <p><strong>Oliver Browne</strong></p>
+            <p>Phone: <a href="tel:07502427673">07502 427 673</a></p>
+            <p>Email: <a href="mailto:dbfinancial@btinternet.com">dbfinancial@btinternet.com</a></p>
+            <p>Location: Templepatrick</p>
+            <p>Additional contact: <a href="tel:07796156240">07796 156 240</a></p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <form>
+            <input type="text" name="name" placeholder="Your name" />
+            <input type="email" name="email" placeholder="Your email" />
+            <input type="tel" name="phone" placeholder="Your phone number" />
+            <select name="asset-type">
+              <option value="">What are you looking to finance?</option>
+              <option>Agricultural equipment</option>
+              <option>Car or commercial vehicle</option>
+              <option>Golf course equipment</option>
+              <option>Groundcare or landscaping equipment</option>
+              <option>Business equipment</option>
+              <option>Other asset</option>
+            </select>
+            <textarea name="message" placeholder="Tell us about the asset, estimated value and preferred timescale"></textarea>
+            <button class="btn" type="submit">Submit Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>DB Financial</strong> · Your Asset Finance Specialist</p>
+      <p>Hire Purchase · Lease · Contract Hire · Flexible Terms & Payments</p>
+    </div>
+  </footer>
+</body>
+</html>
